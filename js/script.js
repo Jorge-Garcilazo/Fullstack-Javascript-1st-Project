@@ -16,7 +16,7 @@ const quotes = [
   {quote:'Start where you are. Use what you have. Do what you can.', source: 'Arthur Ashe', cite: '', year: ''},
   {quote: "Dream as if you'll live forever, live as if you'll die today.", source: 'James Dean', cite: '', year: ''},
   {quote: 'Tell me and I forget. Teach me and I remember. Involve me and I learn.', source: 'Benjamin Franklin', cite: '', year: ''},
-  {quote: 'I need a room full of mirrors so I can be surronded by winnders.', source: 'Kanye West', cite: 'Twitter', year: '2014'}
+  {quote: 'I need a room full of mirrors so I can be surronded by winners.', source: 'Kanye West', cite: 'Twitter', year: '2014'}
 ]
 
 
@@ -26,13 +26,9 @@ function getRandomQuote() {
   return quotes[random]
 }
 
-// assisnged vaible and testing into console
-const quote = getRandomQuote()
-console.log(quote)
-
-
 // if the object has cite with and empty string it will not generate cite or year if it does it will
 function printQuote() {
+  const quote = getRandomQuote()
   if (quote.cite === ''){
     document.getElementById('quote-box').innerHTML = `<p class="quote">${quote.quote}</p>
     <p class="source">${quote.source}</p>`
@@ -46,5 +42,5 @@ function printQuote() {
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
-
+setInterval(printQuote, 10000)
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
