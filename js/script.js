@@ -7,10 +7,7 @@ project 1 - A Random Quote Generator
   // Check the "Project Resources" section of the project instructions
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
-/***
- * `quotes` array
-***/
-
+// array with objects inside
 const quotes = [
   {quote: 'What is not started today is never finished tomorrow.', source: 'Johann Wolfgang von Goethe', cite: '', year: '', tag: 'Inspirational'},
   {quote:'Start where you are. Use what you have. Do what you can.', source: 'Arthur Ashe', cite: '', year: '', tag: 'Inspirational'},
@@ -26,7 +23,7 @@ function getRandomQuote() {
   return quotes[random]
 }
 
-// if the object has cite with and empty string it will not generate cite or year if it does it will
+// if the object has cite/year/tag set to an empty string it will not display it//else if it will display tag//else it will display all 3 (cit,year,tag)
 function printQuote() {
   const quote = getRandomQuote()
   if (quote.cite === '' && quote.year === '' && quote.tag === ''){
@@ -44,7 +41,7 @@ function printQuote() {
 }
 
 
-// gets random values for a random rgb color value
+// function gets random values for a random rgb color value
 function colorchange(){
   r = Math.floor(Math.random() * 255 + 1)
   g = Math.floor(Math.random() * 255 + 1)
