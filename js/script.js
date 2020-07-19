@@ -32,19 +32,16 @@ function printQuote() {
   if (quote.cite === ''){
     document.getElementById('quote-box').innerHTML = `<p class="quote">${quote.quote}</p>
     <p class="source">${quote.source}</p>`
-    colorchange()
+    colorchange() // calls colorchange function to change color everytime button is clicked
   }else{
     document.getElementById('quote-box').innerHTML = `<p class="quote">${quote.quote}</p>
     <p class="source">${quote.source}<span class="citation">${quote.cite}</span><span class="year">${quote.year}</span></p>`
-    colorchange()
+    colorchange() // calls colorchange function to change color everytime button is clicked
   }
 }
 
-/***
- * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
-***/
 
+// gets random values for a random rgb color value
 function colorchange(){
   r = Math.floor(Math.random() * 255 + 1)
   g = Math.floor(Math.random() * 255 + 1)
@@ -52,7 +49,14 @@ function colorchange(){
   return document.body.style.background = `rgb(${r}, ${g}, ${b})`
 
 }
-setInterval(colorchange, 5000)
+// calls the colorchange function every 7 seconds
+setInterval(colorchange, 7000)
 
-setInterval(printQuote, 5000)
+// calls the printquot function ever 7 seconds
+setInterval(printQuote, 7000)
+
+/***
+ * click event listener for the print quote button
+ * DO NOT CHANGE THE CODE BELOW!!
+***/
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
