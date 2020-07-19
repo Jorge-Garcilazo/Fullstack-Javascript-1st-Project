@@ -12,11 +12,11 @@ project 1 - A Random Quote Generator
 ***/
 
 const quotes = [
-  {quote: 'What is not started today is never finished tomorrow.', source: 'Johann Wolfgang von Goethe', cite: '', year: ''},
-  {quote:'Start where you are. Use what you have. Do what you can.', source: 'Arthur Ashe', cite: '', year: ''},
-  {quote: "Dream as if you'll live forever, live as if you'll die today.", source: 'James Dean', cite: '', year: ''},
-  {quote: 'Tell me and I forget. Teach me and I remember. Involve me and I learn.', source: 'Benjamin Franklin', cite: '', year: ''},
-  {quote: 'I need a room full of mirrors so I can be surronded by winners.', source: 'Kanye West', cite: 'Twitter', year: '2014'}
+  {quote: 'What is not started today is never finished tomorrow.', source: 'Johann Wolfgang von Goethe', cite: '', year: '', tag: 'Inspirational'},
+  {quote:'Start where you are. Use what you have. Do what you can.', source: 'Arthur Ashe', cite: '', year: '', tag: 'Inspirational'},
+  {quote: "Dream as if you'll live forever, live as if you'll die today.", source: 'James Dean', cite: '', year: '', tag: 'Do Your Most'},
+  {quote: 'Tell me and I forget. Teach me and I remember. Involve me and I learn.', source: 'Benjamin Franklin', cite: '', year: '', tag: 'Life Lessons'},
+  {quote: 'I need a room full of mirrors so I can be surronded by winners.', source: 'Kanye West', cite: 'Twitter', year: '2014', tag: 'Funny'}
 ]
 
 
@@ -29,13 +29,16 @@ function getRandomQuote() {
 // if the object has cite with and empty string it will not generate cite or year if it does it will
 function printQuote() {
   const quote = getRandomQuote()
-  if (quote.cite === ''){
+  if (quote.cite === '' && quote.year === '' && quote.tag === ''){
     document.getElementById('quote-box').innerHTML = `<p class="quote">${quote.quote}</p>
     <p class="source">${quote.source}</p>`
     colorchange() // calls colorchange function to change color everytime button is clicked
-  }else{
+  }else if (quote.cite === '' && quote.year === ''){
     document.getElementById('quote-box').innerHTML = `<p class="quote">${quote.quote}</p>
-    <p class="source">${quote.source}<span class="citation">${quote.cite}</span><span class="year">${quote.year}</span></p>`
+    <p class="source">${quote.source}<ul><li>${quote.tag}</li><ul></p>`
+  }else {
+    document.getElementById('quote-box').innerHTML = `<p class="quote">${quote.quote}</p>
+    <p class="source">${quote.source}<span class="citation">${quote.cite}</span><span class="year">${quote.year}</span><ul><li>${quote.tag}</li><ul></p></p>`
     colorchange() // calls colorchange function to change color everytime button is clicked
   }
 }
