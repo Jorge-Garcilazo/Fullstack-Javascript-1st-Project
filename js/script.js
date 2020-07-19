@@ -32,9 +32,11 @@ function printQuote() {
   if (quote.cite === ''){
     document.getElementById('quote-box').innerHTML = `<p class="quote">${quote.quote}</p>
     <p class="source">${quote.source}</p>`
+    colorchange()
   }else{
     document.getElementById('quote-box').innerHTML = `<p class="quote">${quote.quote}</p>
     <p class="source">${quote.source}<span class="citation">${quote.cite}</span><span class="year">${quote.year}</span></p>`
+    colorchange()
   }
 }
 
@@ -42,5 +44,15 @@ function printQuote() {
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
-setInterval(printQuote, 10000)
+
+function colorchange(){
+  r = Math.floor(Math.random() * 255 + 1)
+  g = Math.floor(Math.random() * 255 + 1)
+  b = Math.floor(Math.random() * 255 + 1)
+  return document.body.style.background = `rgb(${r}, ${g}, ${b})`
+
+}
+setInterval(colorchange, 5000)
+
+setInterval(printQuote, 5000)
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
