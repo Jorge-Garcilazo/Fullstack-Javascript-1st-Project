@@ -33,6 +33,7 @@ function printQuote() {
   }else if (quote.cite === '' && quote.year === ''){
     document.getElementById('quote-box').innerHTML = `<p class="quote">${quote.quote}</p>
     <p class="source">${quote.source}<ul><li>${quote.tag}</li><ul></p>`
+    colorchange() // calls colorchange function to change color everytime button is clicked
   }else {
     document.getElementById('quote-box').innerHTML = `<p class="quote">${quote.quote}</p>
     <p class="source">${quote.source}<span class="citation">${quote.cite}</span><span class="year">${quote.year}</span><ul><li>${quote.tag}</li><ul></p></p>`
