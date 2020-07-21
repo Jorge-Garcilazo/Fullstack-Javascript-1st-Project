@@ -42,7 +42,7 @@ function printQuote() {
 }
 
 
-// function gets random values for a random rgb color value
+// function gets random values for a random rgb color value for the background
 function colorchange(){
   r = Math.floor(Math.random() * 255 + 1)
   g = Math.floor(Math.random() * 255 + 1)
